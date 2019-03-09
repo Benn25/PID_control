@@ -1,5 +1,19 @@
-#include <PID_v1.h>
+/*
+You will need the following:
+-Arduino (UNO, NANO, Pro Micro...)
+-OLED display SSD1306_128X32 IIC
+-10K potentiometer
+-100K temp sensor + 100K resistor
+-a blank PCB
+-1 PCB switch
+Optional:
+-addressible LED strip (led ws2812b is perfect)
+-the enclosure files I made (and 3D print it). It fits a Ardiono pro micro.
+-the following libraries : PID, Fastled and U8glib
+*/
 
+
+#include <PID_v1.h>
 #include <FastLED.h>
 #include <SPI.h>
 #include <Wire.h>
@@ -212,7 +226,12 @@ void loop() {
   butTimer = 0;
 
   sensor[iter] = analogRead(probe);
+  //I tried a lib for temp sensor, but it wasn't working,
+  //so I mesured the raw values of the sensor at severals temps
+  //and I created a function to approximate the curve
+  //it works well enough, but not very precise under 35C
   //function temperature temp=35.4- 0.105*x + 0.000167*x*x            x is the value from the sensor
+  
   sensor[iter] = 35.4 - 0.106 * sensor[iter] + 0.00017 * sensor[iter] * sensor[iter];
   iter >= NUMSAMPLES - 1 ? iter = 0 : iter++;
 

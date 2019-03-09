@@ -34,3 +34,7 @@ Optional:
 -the enclosure files I made (and 3D print it). It fits a Ardiono pro micro.
 
 -the following libraries : PID, Fastled and U8glib
+
+## Video
+
+https://youtu.be/xTOFt23Ags4

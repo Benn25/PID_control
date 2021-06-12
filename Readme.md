@@ -31,7 +31,7 @@ Optional:
 
 -addressible LED strip (led ws2812b is perfect)
 
--the enclosure files I made (and 3D print it). It fits a Ardiono pro micro.
+-the enclosure files I made (and 3D print it). It fits a Ardiono pro micro : https://www.thingiverse.com/thing:3479521
 
 -the following libraries : PID, Fastled and U8glib
 
